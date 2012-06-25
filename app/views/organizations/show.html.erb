@@ -1,0 +1,55 @@
+<%- model_class = @organization.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<p>
+  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
+  <%= @organization.name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:rfc) %>:</strong><br>
+  <%= @organization.rfc %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:address_one) %>:</strong><br>
+  <%= @organization.address_one %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:address_two) %>:</strong><br>
+  <%= @organization.address_two %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:city) %>:</strong><br>
+  <%= @organization.city %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:state) %>:</strong><br>
+  <%= @organization.state %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:postal_code) %>:</strong><br>
+  <%= @organization.postal_code %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:phone) %>:</strong><br>
+  <%= @organization.phone %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:fax) %>:</strong><br>
+  <%= @organization.fax %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:website) %>:</strong><br>
+  <%= @organization.website %>
+</p>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              organizations_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_organization_path(@organization), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              organization_path(@organization),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
