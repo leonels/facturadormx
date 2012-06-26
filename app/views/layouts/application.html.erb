@@ -7,6 +7,10 @@
   <![endif]-->
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
+
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -25,7 +29,8 @@
           <ul class="nav">
             <li><a href="">Inicio</a></li>
             <li><%= link_to "Personas", organizations_path %></li>
-            <li><a href="">Facturas</a></li>
+            <li><%= link_to "Facturas", invoices_path %></li>
+            <li><%= link_to "Conceptos", items_path %></li>
             <li><a href="">Gastos</a></li>
           </ul>
         </div>
@@ -34,12 +39,16 @@
   </div>
 
 <div class="container">
-  <div class="row">
-    <div class="span12">
 
-      <%= yield %>
-
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <a class="close" data-dismiss="alert">×</a>
+      <%= msg %>
     </div>
+  <% end %>
+
+  <div class="row">
+    <div class="span12"><%= yield %></div>
   </div>
 </div>
 

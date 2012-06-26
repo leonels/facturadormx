@@ -22,6 +22,8 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+gem 'simple_form'
+
 # to prevent the following error
 # Could not find a JavaScript runtime
 gem 'execjs'

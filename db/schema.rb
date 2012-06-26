@@ -11,7 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625171219) do
+ActiveRecord::Schema.define(:version => 20120626142434) do
+
+  create_table "invoices", :force => true do |t|
+    t.integer  "organization_id"
+    t.date     "issued_on"
+    t.string   "status"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "invoice_number"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "price",       :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "invoice_id"
+    t.integer  "item_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "quantity",                                   :default => 1
+    t.decimal  "price",       :precision => 10, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "organizations", :force => true do |t|
     t.string   "name"

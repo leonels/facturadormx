@@ -1,4 +1,10 @@
 Facturadormx::Application.routes.draw do
+  resources :line_items
+
+  resources :items
+
+  resources :invoices
+
   resources :organizations
 
   # The priority is based upon order of creation:

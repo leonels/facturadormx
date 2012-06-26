@@ -8,3 +8,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(function() {
+  $("#invoice_issued_on").datepicker(
+    {dateFormat: "yy-mm-dd"}
+  );
+});
+

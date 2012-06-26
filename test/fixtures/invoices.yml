@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  organization_id: 1
+  issued_on: 2012-06-25
+  status: MyString
+  notes: MyText
+
+two:
+  organization_id: 1
+  issued_on: 2012-06-25
+  status: MyString
+  notes: MyText

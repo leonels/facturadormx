@@ -1,0 +1,18 @@
+      <tr class="item line_item_row item-row">
+		      <td class="item-name">
+		        <div class="delete-wpr">
+		          <%= f.select(:item_id, options_for_select(Item.all.map{|c| [c.name, c.id, {'data-defaultquantity'=>1,'data-price'=>c.price, 'data-description'=>c.description}]}, f.object.item_id), {:prompt => ''}, {:class=>'product', :style => 'width:105px;'}) %>
+		          <%= link_to_remove_fields_invoice "X", f %>
+		        </div>
+		      </td>
+		      <td class="description">
+		        <%= f.text_area :description, :rows => 1, :value => f.object.description, :class => 'description' %>
+		      </td>
+		      <td class="price_data" style="text-align:right;">
+		        <%= f.text_field :price, :size => 8, :value => (number_with_precision(f.object.price,:precision => 2)||0), :class => 'price' %>
+		      </td>
+		      <td class="quantity_data">
+		        <%= f.text_field :quantity, :size => 4, :class => 'qty' %>
+		      </td>
+		      <td class="lineitemtotal linetotal_data" style="text-align:right;"></td>
+		  </tr>

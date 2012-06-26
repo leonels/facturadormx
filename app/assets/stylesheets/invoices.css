@@ -1,0 +1,319 @@
+/************ Table ************/
+
+#main-content table {
+                width: 100%;
+                border-collapse: collapse;
+                }
+                
+#main-content table thead th {
+                font-weight: bold;
+                font-size: 15px;
+                border-bottom: 1px solid #ddd;
+                }
+                
+#main-content tbody {
+                border-bottom: 1px solid #ddd;
+                }
+                
+#main-content tbody tr {
+                background: #fff;
+                }
+              
+#main-content tbody tr.alt-row {
+                background: #f3f3f3;
+                }
+                
+#main-content tbody tr.dont-alternate-color{
+  background-color:white;
+}
+
+                
+#main-content table td,
+#main-content table th {
+                padding: 10px;
+                line-height: 1.3em;
+                }        
+				
+#main-content table tfoot td .bulk-actions {
+                padding: 15px 0 5px 0;
+                } 
+				
+#main-content table tfoot td .bulk-actions select {
+                padding: 4px;
+				border: 1px solid #ccc;
+                }      
+
+
+/* ---
+
+  show
+
+--- */
+
+div.invoice{
+  background-color:white;
+  border:1px solid #e0e0e0;
+  color:black;
+  padding:15px 30px 15px 30px;
+  width:770px;
+  margin:0 auto;
+}
+
+div.from{
+  clear:both;
+  margin-top:10px;
+  margin-bottom:10px;
+  padding:5px;
+  width:100%;
+}
+
+table#invoice{
+  border:0;
+  clear:both;
+  font-size:9pt;
+  /* margin:10px 10px 25px 10px; */
+  margin-top:10px;
+  margin-bottom:25px;
+  width:100%;
+}
+
+table#invoice th{
+  /* background-color:#F1F1F1; */
+  /* background-color:#E3E3E3; */
+  line-height:normal;
+  vertical-align:top;
+  padding:7px 0;
+}
+
+table#invoice tr.headings th{
+  border-top:1px solid #E1E1E1;
+  border-bottom:1px solid #E1E1E1;
+  font-size:9pt;
+  
+  background-color:#e7e7e7;
+  border-top:1px solid #c7c7c7;
+  border-bottom:1px solid #c7c7c7;
+}
+
+table#invoice tr.headings th.first{
+  border-left:1px solid #c7c7c7;
+}
+
+table#invoice tr.headings th.last{
+  border-right:1px solid #c7c7c7;
+}
+
+table#invoice tr.headings.new th{
+  background:#0075CE;
+  color:white;
+  font-weight:bold;
+  padding:3px 5px;
+  line-height:18px;
+  text-shadow:none;
+  font-style:normal;  
+}
+
+table#invoice td{
+  padding:3px 0;
+  vertical-align:top;
+}
+
+table#invoice a{
+  color:blue;
+}
+
+table#invoice.new td{
+  border-bottom:1px solid #E5E5E5;
+  border-right:1px solid #CCC;
+  vertical-align:top;
+  padding:2px 6px 2px 0;
+}
+
+table#invoice td input[type="text"], table#invoice td textarea, table#invoice td select{
+  border:0;
+}
+
+table#invoice td textarea{
+  font-size:10pt;
+}
+
+table#invoice tr.tax td,
+table#invoice tr.subtotal td,
+table#invoice tr.total td{
+  border:0;
+}
+
+td.first_column{
+  border-left:1px solid #CCC;
+}
+
+table#invoice tr.item.line_item_row td a{
+  color:red;
+  text-decoration:none;
+}
+
+table#invoice tr.item.line_item_row td a:hover{
+  background-color:white;
+}
+
+th.quantity, th.price, th.linetotal{
+  text-align:right;
+}
+
+td.quantity_data, td.price_data, td.linetotal_data{
+  text-align:right;
+}
+
+td.quantity_data, td.item_name_data, td.description, td.price_data, td.linetotal_data{
+  padding:10px;
+}
+
+input.price, input.qty{
+  text-align:right;
+  width:80px;
+}
+
+th.item, th.description, td.item_name_data, td.description{
+  text-align:left;
+}
+
+/* th.description, td.description{
+  width:330px;
+} */
+
+table#invoice tr.item.line_item_row td.description textarea{
+  color:black;
+/* font-size:9pt; */
+  font-style:normal;
+}
+
+table#invoice tr.lineitem_row{
+  border-bottom:1px solid #CCC;
+}
+
+td.subtotal, td.tax, td.total{
+  padding:10px;
+  text-align:right;
+}
+
+td.total{
+  font-weight:bold;
+}
+
+
+tr.total{
+  /* border-top:1px solid #CCC;
+  font-size:1.2em; */
+  text-align:right;
+}
+
+tr.subtotal, tr.tax{
+  border:0;
+  text-align:right;
+}
+
+/* ------------------------------
+
+          index
+
+------------------------------- */
+/*
+col#invoiceCol{
+  width:70px;
+}
+
+col#clientCol{
+  width:120px;
+}
+*/
+
+
+
+span.new_invoice a{
+  background-color:green;
+  border:1px solid #666;
+  color:white;
+  cursor:pointer;
+  display:block;
+  float:right;
+  font-size:12pt;
+  font-weight:bold;
+  height:20px;
+  padding:15px;
+  text-decoration:none;
+}
+
+table#invoices th.total, table#invoices td.total{
+  text-align:right;
+  width:70px;
+}
+
+table#invoices th.date, table#invoices td.date{
+  text-align:center;
+  width:50px;
+}
+
+table#invoices th.status, table#invoices td.status{
+  text-align:center;
+  width:60px;
+}
+
+col#totalCol{
+  text-align:right;
+}
+
+col#statusCol{
+  text-align:center;
+}
+
+col#editCol{
+  text-align:center;
+}
+
+/*
+col#totalCol, col#dateCol{
+  width:80px;
+}
+
+col#invoiceCol, col#statusCol{
+  width:75px;
+}
+*/
+
+a.page{
+  margin-right:3px;
+  padding:2px 7px;
+}
+
+/* a.page, a.invoice_link, table#invoices td.edit a{
+  color:blue;
+} */
+
+a.page:hover, a.invoice_link:hover, table#invoices td.edit a:hover{
+  background-color:blue;
+  color:white;
+}
+
+span.paid{
+  color:green;
+}
+
+span.partial{
+  color:#E27100;
+}
+
+span.viewed{
+}
+
+span.sent{
+}
+
+td.status{
+  text-align:center;
+}
+
+span.paid,span.partial,span.viewed,span.sent{
+  font-family:verdana, tahoma, arial, sans-serif;
+  font-size:8pt;
+}
+
