@@ -1,21 +1,19 @@
 <%- model_class = Organization.new.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<h1>Clients</h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th>RFC</th>
       <th><%= model_class.human_attribute_name(:city) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @organizations.each do |organization| %>
       <tr>
-        <td><%= link_to organization.id, organization_path(organization) %></td>
-        <td><%= organization.name %></td>
+        <td><%= link_to organization.name, organization_path(organization) %></td>
         <td><%= organization.rfc %></td>
         <td><%= organization.city %></td>
         <td><%= organization.phone %></td>

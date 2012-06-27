@@ -1,3 +1,9 @@
+/* Status colors */
+span.invoice-normal{color:#b22222;}
+span.invoice-partial{color:#E27100;}
+span.invoice-paid{color:#090;}
+
+
 /************ Table ************/
 
 #main-content table {

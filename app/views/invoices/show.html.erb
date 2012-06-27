@@ -27,7 +27,7 @@ table td, table th { border: 1px solid black; padding: 5px; }
 .edit #logohelp { display: block; }
 .edit #save-logo, .edit #cancel-logo { display: inline; }
 .edit #image, #save-logo, #cancel-logo, .edit #change-logo, .edit #delete-logo { display: none; }
-#customer-title { font-size: 20px; font-weight: bold; float: left; }
+#customer-title { font-size: 20px; float: left; }
 
 #meta { margin-top: 1px; width: 300px; float: right; }
 #meta td { text-align: right;  }
@@ -76,27 +76,16 @@ textarea#invoice_notes{
 		
 		<div id="identity">
 		
-            <textarea id="address">Chris Coyier
-123 Appleseed Street
-Appleville, WI 53719
-
-Phone: (555) 555-5555</textarea>
+            <span id="address">
+            Leonel Santos<br />
+            Jose Guadiana #123<br />
+            Colonia Centro<br />
+            Sabinas Hidalgo, NL 53719<br />
+            Telefono: (824) 242-5555
+            </span>
 
             <div id="logo">
-
-              <div id="logoctr">
-                <a href="javascript:;" id="change-logo" title="Change logo">Change Logo</a>
-                <a href="javascript:;" id="save-logo" title="Save changes">Save</a>
-                |
-                <a href="javascript:;" id="delete-logo" title="Delete logo">Delete Logo</a>
-                <a href="javascript:;" id="cancel-logo" title="Cancel changes">Cancel</a>
-              </div>
-
-              <div id="logohelp">
-                <input id="imageloc" type="text" size="50" value=""><br>
-                (max width: 540px, max height: 100px)
-              </div>
-              <img id="image" src="images/logo.png" alt="logo">
+              <img id="image" src="/assets/logo.png" alt="logo">
             </div>
 		
 		</div>
@@ -105,8 +94,9 @@ Phone: (555) 555-5555</textarea>
 		
 		<div id="customer">
 
-            <textarea id="customer-title">Widget Corp.
-c/o Steve Widget</textarea>
+            <span id="customer-title">
+              <%= simple_format @invoice.organization.formatted %>
+            </span>
 
             <table id="meta">
                 <tbody>
@@ -137,45 +127,58 @@ c/o Steve Widget</textarea>
 		      <th>Price</th>
 		  </tr>
 		  
-		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><textarea>Web Updates</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
-		      <td class="description"><textarea>Monthly web updates for http://widgetcorp.com (Nov. 1 - Nov. 30, 2009)</textarea></td>
-		      <td><textarea class="cost">$650.00</textarea></td>
-		      <td><textarea class="qty">1</textarea></td>
-		      <td><span class="price">$650.00</span></td>
-		  </tr>
-		  
-		  <tr class="item-row">
-		      <td class="item-name"><div class="delete-wpr"><textarea>SSL Renewals</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td>
+		  <% @invoice.line_items.each do |line_item| %>
+        <tr class="item-row" style="border-bottom:1px solid #e5e5e5;">
+          <td class="item-name" style="padding:2px 2px 2px 5px;">
+            <div class="delete-wpr">
+		          <span><%= line_item.item.name %></span>
+		        </div>
+          </td>
+          <td class="description">
+            <% desc = simple_format line_item.description %>
+            <% desc = desc[3..-5] %>
+            <span><%= desc %></span>
+          </td>
+          <td class="price_data"><span class="cost"><%= number_with_precision(line_item.price, :precision =>2 ) %></span></td>
+          <td class="quantity_data"><span class="qty"><%= line_item.quantity %></span></td>
+          <td class="linetotal_data" style="padding-right:5px;"><span class="price"><%= number_with_precision(line_item.line_total, :precision => 2) %></span></td>
+        </tr>
+      <% end %>
 
-		      <td class="description"><textarea>Yearly renewals of SSL certificates on main domain and several subdomains</textarea></td>
-		      <td><textarea class="cost">$75.00</textarea></td>
-		      <td><textarea class="qty">3</textarea></td>
-		      <td><span class="price">$225.00</span></td>
-		  </tr>
-		  
+
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Subtotal</td>
-		      <td class="total-value"><div id="subtotal">$875.00</div></td>
+		      <td class="total-value" style="text-align:right;"><%= number_to_currency @invoice.subtotal %></td>
 		  </tr>
+		  
 		  <tr>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="total-line">IVA</td>
+		      <td class="total-value" style="text-align:right;"><%= number_to_currency @invoice.iva %></td>
+		  </tr>
 
+		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Total</td>
-		      <td class="total-value"><div id="total">$875.00</div></td>
+		      <td class="total-value" style="text-align:right;"><%= number_to_currency @invoice.total %></td>
 		  </tr>
+		  
+		  <!--
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line">Amount Paid</td>
-
 		      <td class="total-value"><textarea id="paid">$0.00</textarea></td>
 		  </tr>
+		  -->
+		  
+		  <!--
 		  <tr>
 		      <td colspan="2" class="blank"> </td>
 		      <td colspan="2" class="total-line balance">Balance Due</td>
 		      <td class="total-value balance"><div class="due">$875.00</div></td>
 		  </tr>
+		  -->
 		
 		</tbody></table>
 		

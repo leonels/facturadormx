@@ -3,22 +3,36 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th>Number</th>
-      <th><%= model_class.human_attribute_name(:organization_id) %></th>
-      <th><%= model_class.human_attribute_name(:issued_on) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Invoice</th>
+      <th>Client Name</th>
+      <th>Date</th>
+      <th style="text-align:right;">Total</th>
+      <th style="text-align:center;">Status</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= link_to invoice.id, invoice_path(invoice) %></td>
-        <td><%= invoice.invoice_number %></td>
-        <td><%= invoice.organization_id %></td>
+        <td><%= link_to invoice.invoice_number, invoice_path(invoice) %></td>
+        <td><%= invoice.organization.name.blank? ? "N/A" : invoice.organization.name %></td>
         <td><%= invoice.issued_on %></td>
-        <td><%= invoice.status %></td>
+        <td style="text-align:right;"><%= number_to_currency invoice.total %></td>
+        <td style="text-align:center;">
+          <%
+            if invoice.status == 'paid'
+              invoice_status_class = 'invoice-paid'
+              read_status = 'paid'
+            elsif invoice.status == 'partial'
+              invoice_status_class = 'invoice-partial'
+              read_status = 'partial'
+            else
+              invoice_status_class = 'invoice-normal'
+              read_status = 'unpaid'
+            end
+            %>  
+            <span class="<%= invoice_status_class %>"><%= read_status %></span>
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_invoice_path(invoice), :class => 'btn btn-mini' %>
