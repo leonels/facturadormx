@@ -1,0 +1,29 @@
+<h2>Sign up</h2>
+
+<% if @user.errors.any? %>
+<div class="notification error png_bg">
+  <div><%= pluralize(@user.errors.count, "error") %> prohibited this invoice from being saved:</div>
+      <ul style="padding-left:30px;">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+</div>
+<% end %>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :username, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

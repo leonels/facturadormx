@@ -1,6 +1,9 @@
 class Organization < ActiveRecord::Base
-  validates_presence_of :name
+
   has_many :invoices
+  has_many :people
+  
+  validates_presence_of :name
   
   def formatted
     a = "#{name} <br />" unless name.blank?

@@ -1,0 +1,4 @@
+es:
+  invoices:
+    index:
+      title: "Facturas"

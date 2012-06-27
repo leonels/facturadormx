@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Facturadormx</title>
+  <title>facturadormx</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -27,11 +27,33 @@
         <a class="brand" href="#">Facturador MX</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li><a href="">Dashboard</a></li>
+            <li><%= link_to "Dashboard", dashboard_path %></li>
             <li><%= link_to "Clients", organizations_path %></li>
             <li><%= link_to "Invoices", invoices_path %></li>
             <li><%= link_to "Items", items_path %></li>
             <li><a href="">Expenses</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            <li><%= link_to_unless_current "English", locale: "en" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to_unless_current "Spanish", locale: "es" %></li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+            <li class="divider-vertical"></li>
+            <% if user_signed_in? %>
+              <li>Signed in as <%= current_user.email %>. Not you?</li>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <% end %>
           </ul>
         </div>
       </div>
