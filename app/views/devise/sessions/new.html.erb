@@ -1,14 +1,14 @@
-<h2>Sign in</h2>
+<h2><%= t "users.sign_in.title" %></h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div class="inputs">
-    <%= f.input :username, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.input :username, label: (t "users.username"), :required => false, :autofocus => true %>
+    <%= f.input :password, label: (t "users.password"), :required => false %>
+    <%= f.input :remember_me, label: (t "users.remember_me"), :as => :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Sign in" %>
+    <%= f.button :submit, (t "users.sign_in.title") %>
   </div>
 <% end %>
 

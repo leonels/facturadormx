@@ -1,12 +1,16 @@
 <%- model_class = Organization.new.class -%>
-<h1>Clients</h1>
+
+<div class="page-header">
+  <h1><%= t ".title" %></h1>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th>RFC</th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= t ".organization" %></th>
+      <th><%= t ".contact" %></th>
+      <th>Email</th>
+      <th><%= t ".business_phone" %></th>
       <th></th>
     </tr>
   </thead>
@@ -14,8 +18,8 @@
     <% @organizations.each do |organization| %>
       <tr>
         <td><%= link_to organization.name, organization_path(organization) %></td>
-        <td><%= organization.rfc %></td>
-        <td><%= organization.city %></td>
+        <td><%= organization.people[0].full_name unless organization.people.nil? %></td>
+        <td><%= (mail_to organization.people[0].email) unless organization.people.nil? %></td>
         <td><%= organization.phone %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

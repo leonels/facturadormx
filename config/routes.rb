@@ -10,7 +10,7 @@ Facturadormx::Application.routes.draw do
     resources :invoices
     resources :organizations
 
-    root :to => "dashboard#index", :as => 'dashboard'
+    root :to => "dashboard#index"
     
   end
   match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }

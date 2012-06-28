@@ -1,38 +1,31 @@
 class OrganizationsController < ApplicationController
-  # GET /organizations
-  # GET /organizations.json
+
+  before_filter :authenticate_user!
+
   def index
     @organizations = Organization.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @organizations }
     end
   end
 
-  # GET /organizations/1
-  # GET /organizations/1.json
   def show
     @organization = Organization.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @organization }
     end
   end
 
-  # GET /organizations/new
-  # GET /organizations/new.json
   def new
     @organization = Organization.new
-
+     person = @organization.people.build
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @organization }
     end
   end
 
-  # GET /organizations/1/edit
   def edit
     @organization = Organization.find(params[:id])
   end

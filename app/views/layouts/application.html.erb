@@ -26,12 +26,12 @@
         </a>
         <a class="brand" href="#">Facturador MX</a>
         <div class="nav-collapse">
+        <% if user_signed_in? %>
           <ul class="nav">
-            <li><%= link_to "Dashboard", dashboard_path %></li>
-            <li><%= link_to "Clients", organizations_path %></li>
-            <li><%= link_to "Invoices", invoices_path %></li>
-            <li><%= link_to "Items", items_path %></li>
-            <li><a href="">Expenses</a></li>
+            <li><%= link_to "Dashboard", dashboard_index_path %></li>
+            <li><%= link_to t("organizations.index.title"), organizations_path %></li>
+            <li><%= link_to t("invoices.index.title"), invoices_path %></li>
+            <li><%= link_to t("items.index.title"), items_path %></li>
           </ul>
           <ul class="nav pull-right">
             <li class="divider-vertical"></li>
@@ -50,10 +50,19 @@
               </ul>
             </li>
             <li class="divider-vertical"></li>
-            <% if user_signed_in? %>
-              <li>Signed in as <%= current_user.email %>. Not you?</li>
-              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-            <% end %>
+            <li><a><%= current_user.email %></a></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to t("users.sign_out"), destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <ul class="nav">
+            <li><%= link_to (t "users.sign_in.title"), new_session_path(:user) %></li>
+            <li><%= link_to (t "users.sign_up.title"), new_registration_path(:user) %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to_unless_current "English", locale: "en" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to_unless_current "Spanish", locale: "es" %></li>
+          </ul>
+          <% end %>
           </ul>
         </div>
       </div>

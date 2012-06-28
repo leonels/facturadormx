@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2><%= t "users.sign_up.title" %></h2>
 
 <% if @user.errors.any? %>
 <div class="notification error png_bg">
@@ -16,13 +16,13 @@
 
   <div class="inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :username, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+    <%= f.input :username, label: (t "users.sign_up.username"), :required => true, :autofocus => true %>
+    <%= f.input :password, label: (t "users.sign_up.password"), :required => true %>
+    <%= f.input :password_confirmation, label: (t "users.sign_up.password_confirmation"), :required => true %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, (t "users.sign_up.button") %>
   </div>
 <% end %>
 

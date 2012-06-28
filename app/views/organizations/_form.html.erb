@@ -1,19 +1,34 @@
 <%= simple_form_for @organization, :html => { :class => 'form-horizontal' } do |f| %>
-    
-    <%= f.input :name %>
-    <%= f.input :rfc %>
-    <%= f.input :address_one %>
-    <%= f.input :address_two %>
-    <%= f.input :city %>
-    <%= f.input :state %>
-    <%= f.input :postal_code %>
-    <%= f.input :phone %>
+
+    <fieldset>
+    <legend><%= t "organizations.edit.organization" %></legend>
+    <%= f.input :name, label: t('organizations.edit.organization_name') %>
+    <%= f.input :rfc, label: "RFC" %>    
+    </fieldset>
+
+    <fieldset>
+    <legend><%= t "organizations.edit.contacts" %></legend>
+    <%= f.fields_for :people do |builder| %>
+      <%= render 'people_fields', :f => builder %>
+    <% end %>
+    </fieldset>
+
+    <fieldset>
+    <legend><%= t "organizations.edit.details" %></legend>
+    <%= f.input :address_one, label: t('organizations.edit.address_one') %>
+    <%= f.input :address_two, label: "-" %>
+    <%= f.input :city, label: t('organizations.edit.city') %>
+    <%= f.input :state, label: t('organizations.edit.state') %>
+    <%= f.input :postal_code, label: t('organizations.edit.postal_code') %>
+    <%= f.input :phone, label: t('organizations.edit.phone') %>
     <%= f.input :fax %>
-    <%= f.input :website %>
+    <%= f.input :website, label: t('organizations.edit.website') %>
+    </fieldset>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), organizations_path, :class => 'btn' %>
-  </div>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('buttons.cancel'), organizations_path, :class => 'btn' %>
+    </div>
 
+</form>
 <% end %>

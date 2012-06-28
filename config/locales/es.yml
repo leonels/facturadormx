@@ -1,4 +1,60 @@
 es:
+  users:
+    sign_in:
+      title: "Acceder"
+    sign_up:
+      title: "Crear una cuenta"
+      username: "Elige tu nombre de usuario"
+      password: "Crea una contraseña"
+      password_confirmation: "Confirma tu contraseña"
+      button: "Crear cuenta"
+    sign_out: "Cerrar sesión"
+    username: "Nombre de usuario"
+    password: "Contraseña"
+    remember_me: "No cerrar sesión"
+    forgot_password: "¿No puedes acceder a tu cuenta?"
+  organizations:
+    index:
+      title: "Clientes"
+      organization: "Empresa"
+      contact: "Contacto"
+      business_phone: "Telefono"
+    show:
+      address: "Local"
+      phone: "Telefono"
+      contacts: "Contactos"
+      website: "Sitio Web"
+      mobile_phone: "Telefono Mobil"
+      phone_one: "Telefono"
+    edit:
+      title: "Editar Cliente"
+      organization: "Empresa"
+      organization_name: "Nombre de la empresa"
+      first_name: "Nombre"
+      last_name: "Apellido"
+      mobile_phone: "Telefono Mobil"
+      phone_one: "Telefono"
+      address_one: "Domicilio"
+      address_two: ""
+      city: "Ciudad"
+      state: "Estado"
+      postal_code: "Codigo Postal"
+      phone: "Telefono"
+      website: "Sitio Web"
+      contacts: "Contactos"
+      details: "Detalles de la Empresa"
   invoices:
     index:
       title: "Facturas"
+      invoice: "Factura"
+      client_name: "Cliente"
+      date: "Fecha"
+  items:
+    index:
+      title: "Conceptos"
+  buttons:
+    back: "Atras"
+    edit: "Editar"
+    destroy: "Borrar"
+    cancel: "Cancelar"
+    update: "Actualizar"

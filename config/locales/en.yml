@@ -1,7 +1,60 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
+  users:
+    sign_in:
+      title: "Sign in"
+    sign_up:
+      title: "Sign up"
+      username: "Choose your username"
+      password: "Create a password"
+      password_confirmation: "Confirm your password"
+      button: "Get started"
+    sign_out: "Sign out"
+    username: "Username"
+    password: "Password"
+    remember_me: "Remember me"
+    forgot_password: "Can't access your account?"
+  organizations:
+    index:
+      title: "Clients"
+      organization: "Company"
+      contact: "Contact"
+      business_phone: "Business Phone"
+    show:
+      address: "Address"
+      phone: "Business Phone"
+      contacts: "Contacts"
+      website: "Website"
+      mobile_phone: "Mobile Phone"
+      phone_one: "Phone"
+    edit:
+      title: "Edit Client"
+      organization: "Company"
+      organization_name: "Company Name"
+      first_name: "First name"
+      last_name: "Last name"
+      mobile_phone: "Mobile phone"
+      phone_one: "Phone"
+      address_one: "Address"
+      address_two: ""
+      city: "City"
+      state: "State"
+      postal_code: "Zipcode"
+      phone: "Phone"
+      website: "Website"
+      contacts: "Contacts"
+      details: "Company Details"
   invoices:
     index:
       title: "Invoices"
+      invoice: "Invoice" 
+      client_name: "Client Name"
+      date: "Date"
+  items:
+    index:
+      title: "Items"
+  buttons:
+    back: "Back"
+    edit: "Edit"
+    destroy: "Delete"
+    cancel: "Cancel"
+    update: "Update"
