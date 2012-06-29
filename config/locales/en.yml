@@ -26,6 +26,8 @@ en:
       website: "Website"
       mobile_phone: "Mobile Phone"
       phone_one: "Phone"
+    new: 
+      title: "New Client"
     edit:
       title: "Edit Client"
       organization: "Company"
@@ -49,12 +51,54 @@ en:
       invoice: "Invoice" 
       client_name: "Client Name"
       date: "Date"
+    show:
+      invoice: "INVOICE"
+      invoice_number: 'Invoice #'
+      issued_date: 'Date of Issue'
+      item: 'Item'
+      description: 'Description'
+      unit_cost: 'Unit Cost'
+      quantity: 'Quantity'
+      line_total: 'Line Total'
+      notes: 'Notes'
+    form: 
+      client: "Client"
+      invoice_number: "Invoice Number"
+      issued_on: "Date of Issue"
+      item: 'Item'
+      description: 'Description'
+      unit_cost: 'Unit Cost'
+      quantity: 'Quantity'
+      line_total: 'Line Total'
+      add_a_line: 'Add a Line'
+      notes: "Notes"
+    status:
+      unpaid: "unpaid"
+      partial: "partial"
+      paid: "paid"
   items:
     index:
       title: "Items"
+      name: 'Name'
+      description: 'Description'
+      price: 'Price'
+    show:
+      price: 'Price'
+      description: 'Description'
+    form:
+      name: 'Name'
+      price: 'Price'
+      description: 'Description'
+    new:
+      title: 'New Item'
+    edit:
+      title: 'Edit Item'
   buttons:
     back: "Back"
     edit: "Edit"
     destroy: "Delete"
     cancel: "Cancel"
     update: "Update"
+    new_client: "New Client"
+    new_invoice: "New Invoice"
+    new_item: "New Item"

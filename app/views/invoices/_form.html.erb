@@ -6,7 +6,7 @@
 */
 
 * { margin: 0; padding: 0; }
-body { font: 14px/1.4 Georgia, serif; }
+/* form.form-horizontal { font: 14px/1.4 Georgia, serif; } */
 #page-wrap { width: 800px; margin: 0 auto; }
 
 textarea { border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none; }
@@ -73,20 +73,20 @@ textarea#invoice_notes{
 
 <%= simple_form_for @invoice, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
-  <%= f.association :organization %>
-  <%= f.input :invoice_number %>
-  <%= f.input :issued_on, :as => :string %>
+  <%= f.association :organization, :label => t('invoices.form.client') %>
+  <%= f.input :invoice_number, :label => t('invoices.form.invoice_number') %>
+  <%= f.input :issued_on, :label => t('invoices.form.issued_on'), :as => :string %>
 
 
 
 <table id="items">
 		
 		  <tr>
-		      <th>Item</th>
-		      <th>Description</th>
-		      <th>Unit Cost</th>
-		      <th>Quantity</th>
-		      <th>Line Total</th>
+		      <th><%= t '.item' %></th>
+		      <th><%= t '.description' %></th>
+		      <th><%= t '.unit_cost' %></th>
+		      <th><%= t '.quantity' %></th>
+		      <th><%= t '.line_total' %></th>
 		  </tr>
       
       <%= f.fields_for :line_items do |builder| %>
@@ -96,7 +96,7 @@ textarea#invoice_notes{
 		  
 		  
 		  <tr id="hiderow" class="add_a_line_row">
-		    <td colspan="5"><%= link_to_add_fields_invoice t("general.add_a_line"), f, :line_items %></td>
+		    <td colspan="5"><%= link_to_add_fields_invoice t(".add_a_line"), f, :line_items %></td>
 		  </tr>
 		  
 		  <tr>
@@ -127,7 +127,7 @@ textarea#invoice_notes{
 		</table>
 
     <div id="terms">
-		  <h5>Notes</h5>
+		  <h5><%= t '.notes' %></h5>
 		  
 		  <%= f.text_area :notes, :rows => 3 %>
 		  
@@ -135,8 +135,8 @@ textarea#invoice_notes{
 </div><!-- div#page-wrap ends -->
 
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), invoices_path, :class => 'btn' %>
+    <%= f.button :submit, :value => t('buttons.new_invoice'), :class => 'btn-primary' %>
+    <%= link_to t('buttons.cancel'), invoices_path, :class => 'btn' %>
   </div>
 <% end %>
 

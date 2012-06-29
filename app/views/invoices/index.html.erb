@@ -4,7 +4,7 @@
 <h1><%=t ".title" %></h1>
 </div>
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th><%= t ".invoice" %></th>
@@ -26,21 +26,21 @@
           <%
             if invoice.status == 'paid'
               invoice_status_class = 'label label-success'
-              read_status = 'paid'
+              read_status = t 'invoices.status.paid'
             elsif invoice.status == 'partial'
               invoice_status_class = 'label label-warning'
-              read_status = 'partial'
+              read_status = t 'invoices.status.partial'
             else
               invoice_status_class = 'label label-important'
-              read_status = 'unpaid'
+              read_status = t 'invoices.status.unpaid'
             end
             %>  
             <span class="<%= invoice_status_class %>"><%= read_status %></span>
         </td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to t('buttons.edit'),
                       edit_invoice_path(invoice), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to t('buttons.destroy'),
                       invoice_path(invoice),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
@@ -51,6 +51,6 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to t('buttons.new_invoice'),
             new_invoice_path,
             :class => 'btn btn-primary' %>

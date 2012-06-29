@@ -26,6 +26,8 @@ es:
       website: "Sitio Web"
       mobile_phone: "Telefono Mobil"
       phone_one: "Telefono"
+    new:
+      title: "Crear Cliente"
     edit:
       title: "Editar Cliente"
       organization: "Empresa"
@@ -49,12 +51,54 @@ es:
       invoice: "Factura"
       client_name: "Cliente"
       date: "Fecha"
+    show:
+      invoice: "FACTURA"
+      invoice_number: 'Factura #'
+      issued_date: 'Fecha'
+      item: 'Concepto'
+      description: 'Descripcion'
+      unit_cost: 'Precio'
+      quantity: 'Cantidad'
+      line_total: 'Totales'
+      notes: 'Anotaciones'
+    form: 
+      client: "Cliente"
+      invoice_number: "Numero de Factura"
+      issued_on: "Fecha"
+      item: "Concepto"
+      description: 'Descripcion'
+      unit_cost: 'Precio'
+      quantity: 'Cantidad'
+      line_total: 'Totales'
+      add_a_line: 'Agregar Linea'
+      notes: 'Anotaciones'
+    status:
+      unpaid: "pendiente" 
+      partial: "parcial"
+      paid: "pagado"
   items:
     index:
       title: "Conceptos"
+      name: 'Nombre'
+      description: 'Descripcion'
+      price: 'Precio'
+    show:
+      price: 'Precio'
+      description: 'Descripcion'
+    form:
+      name: 'Nombre'
+      price: 'Precio'
+      description: 'Descripcion'
+    new:
+      title: 'Crear Concepto'
+    edit:
+      title: 'Editar Concepto'
   buttons:
     back: "Atras"
     edit: "Editar"
     destroy: "Borrar"
     cancel: "Cancelar"
     update: "Actualizar"
+    new_client: "Crear Cliente"
+    new_invoice: "Crear Factura"
+    new_item: "Crear Concepto"

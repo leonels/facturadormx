@@ -69,10 +69,13 @@ textarea#invoice_notes{
 }
 </style>
 
+<div class="page-header">
+  <h1><%= t ".invoice" %>: <%= @invoice.invoice_number %></h1>
+</div>
 
 <div id="page-wrap">
 
-		<textarea id="header">INVOICE</textarea>
+		<textarea id="header"><%= t '.invoice' %></textarea>
 		
 		<div id="identity">
 		
@@ -101,17 +104,19 @@ textarea#invoice_notes{
             <table id="meta">
                 <tbody>
                 <tr>
-                  <td class="meta-head">Invoice #</td>
+                  <td class="meta-head"><%= t '.invoice_number'%></td>
                   <td><%= @invoice.invoice_number %></td>
                 </tr>
                 <tr>
-                  <td class="meta-head">Date</td>
+                  <td class="meta-head"><%= t '.issued_date' %></td>
                   <td><%= @invoice.read_date_issued_on %></td>
                 </tr>
+                <!--
                 <tr>
                     <td class="meta-head">Amount Due</td>
                     <td><div class="due"><%= number_to_currency @invoice.total %></div></td>
                 </tr>
+                -->
 
             </tbody></table>
 		
@@ -120,11 +125,11 @@ textarea#invoice_notes{
 		<table id="items">
 		
 		  <tbody><tr>
-		      <th>Item</th>
-		      <th>Description</th>
-		      <th>Unit Cost</th>
-		      <th>Quantity</th>
-		      <th>Price</th>
+		      <th><%= t '.item' %></th>
+		      <th><%= t '.description' %></th>
+		      <th><%= t '.unit_cost' %></th>
+		      <th><%= t '.quantity' %></th>
+		      <th><%= t '.line_total' %></th>
 		  </tr>
 		  
 		  <% @invoice.line_items.each do |line_item| %>
@@ -183,18 +188,18 @@ textarea#invoice_notes{
 		</tbody></table>
 		
 		<div id="terms">
-		  <h5>Notes</h5>
+		  <h5><%= t '.notes' %></h5>
 		  <%= @invoice.notes %>
 		</div>
 	
 	</div>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to t('buttons.back'),
               invoices_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to t('buttons.edit'),
               edit_invoice_path(@invoice), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to t('buttons.destroy'),
               invoice_path(@invoice),
               :method => 'delete',
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
