@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'kaminari'
+gem 'mysql2'
 gem 'hirb'
 
 # to prevent the following error
