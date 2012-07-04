@@ -4,6 +4,8 @@
 <h1><%=t ".title" %></h1>
 </div>
 
+<% if @invoices.count > 0 %>
+
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
@@ -50,6 +52,28 @@
     <% end %>
   </tbody>
 </table>
+
+<% else %>
+
+<div class="alert alert-info">
+  <h2>Desde aqui podras accesar tus facturas.
+</div>
+
+<% if Item.where(:account_id => current_user.account.id).count == 0 %>
+  <div class="alert alert-block">
+    Antes de capturar tu primer factura, hay que capturar por lo menos un concepto de facturacion.<h2>
+    <%= link_to 'Haz click aqui para crear un nuevo concepto de facturacion', new_item_path, :class => 'btn btn-small btn-warning' %>
+  </div>
+<% end %>
+
+<% if Organization.where(:account_id => current_user.account.id).count == 0 %>
+  <div class="alert alert-block">
+    Antes de capturar tu primer factura, hay que capturar por lo menos un cliente.<h2>
+    <%= link_to 'Haz click aqui para crear un nuevo cliente', new_organization_path, :class => 'btn btn-small btn-warning' %>
+  </div>
+<% end %>
+
+<% end %>
 
 <%= link_to t('buttons.new_invoice'),
             new_invoice_path,

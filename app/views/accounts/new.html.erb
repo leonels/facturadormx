@@ -1,0 +1,25 @@
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>FacturadorMX</h1>
+        <p>Facturador electronico. Ponlo a prueba GRATIS por 15 dias. Subscribirte solo toma un minuto. Sin compromiso. No requiere targeta de credito.</p>
+        <!-- <p><a class="btn btn-primary btn-large">Crear una cuenta »</a></p> -->
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span8">
+          <h2>Crear una nueva cuenta de FacturadorMX</h2>
+          <%= render 'form' %>
+        </div>
+        <div class="span4">
+          <h2>Ya tienes una cuenta?</h2>
+          <p>Click en el boton debajo para acceder.</p>
+          <p><%= link_to t("users.sign_in.title"), new_session_path(:user), :class => 'btn btn-success' %></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>© LeonelOnRails <%= Date.today.year %></p>
+      </footer>

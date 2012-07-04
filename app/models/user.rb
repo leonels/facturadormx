@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  belongs_to :account
+  validates :account_id, :presence => true, :on => :update
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :timeoutable and :omniauthable

@@ -1,5 +1,8 @@
 class Item < ActiveRecord::Base
   
+  belongs_to :account
+  validates :account_id, :presence => true
+  
   has_many :line_items
 
   before_destroy :ensure_not_referenced_by_any_line_item

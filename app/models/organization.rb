@@ -1,5 +1,8 @@
 class Organization < ActiveRecord::Base
 
+  belongs_to :account
+  validates :account_id, :presence => true, :on => :update
+
   has_many :invoices, :dependent => :destroy
   has_many :people, :dependent => :destroy
   accepts_nested_attributes_for :people

@@ -35,9 +35,9 @@
           </ul>
           <ul class="nav pull-right">
             <li class="divider-vertical"></li>
-            <li><%= link_to_unless_current "English", locale: "en" %></li>
+            <li><%= link_to "English", locale: "en" %></li>
             <li class="divider-vertical"></li>
-            <li><%= link_to_unless_current "Spanish", locale: "es" %></li>
+            <li><%= link_to "Spanish", locale: "es" %></li>
             <li class="divider-vertical"></li>
             <!--
             <li class="dropdown">
@@ -58,11 +58,17 @@
           <% else %>
           <ul class="nav">
             <li><%= link_to (t "users.sign_in.title"), new_session_path(:user) %></li>
-            <li><%= link_to (t "users.sign_up.title"), new_registration_path(:user) %></li>
             <li class="divider-vertical"></li>
-            <li><%= link_to_unless_current "English", locale: "en" %></li>
+            <li><%= link_to (t "users.sign_up.title"), new_account_path %></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li>
+              <%= link_to "English", locale: "en" %>
+            </li>
             <li class="divider-vertical"></li>
-            <li><%= link_to_unless_current "Spanish", locale: "es" %></li>
+            <li>
+              <%= link_to "Spanish", locale: "es" %>
+            </li>
           </ul>
           <% end %>
           </ul>

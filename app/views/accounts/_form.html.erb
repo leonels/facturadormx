@@ -1,0 +1,13 @@
+<%= simple_form_for(@account) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.fields_for :users do |builder| %>
+      <%= render 'user_fields', :f => builder %>
+    <% end %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.button :submit, (t "users.sign_up.button"), :class => 'btn-primary' %>
+  </div>
+<% end %>

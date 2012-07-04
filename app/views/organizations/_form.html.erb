@@ -1,3 +1,20 @@
+<% if @organization.errors.any? %>
+<div class="flash">
+    <div class="message error" style="padding-left:60px;text-align:left;">
+      <p><%= pluralize(@organization.errors.count, "error") %> prohibited this organization from being saved:</p>
+      <p>
+        <ul style="padding-left:30px;">
+        <% @organization.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </p>
+    </div>  
+  </div>
+<% end %>
+
+<%= debug @organization.errors %>
+
 <%= simple_form_for @organization, :html => { :class => 'form-horizontal' } do |f| %>
 
     <fieldset>

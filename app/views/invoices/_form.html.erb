@@ -69,11 +69,32 @@ textarea#invoice_notes{
 }
 </style>
 
+
+
+
+<% if @invoice.errors.any? %>
+<div class="flash">
+    <div class="message error" style="padding-left:60px;text-align:left;">
+      <p><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</p>
+      <p>
+        <ul style="padding-left:30px;">
+        <% @invoice.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </p>
+    </div>  
+  </div>
+<% end %>
+
+
+
+
 <div id="page-wrap">
 
 <%= simple_form_for @invoice, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
-  <%= f.association :organization, :label => t('invoices.form.client') %>
+  <%= f.association :organization, :collection => @clients, :label => t('invoices.form.client') %>
   <%= f.input :invoice_number, :label => t('invoices.form.invoice_number') %>
   <%= f.input :issued_on, :label => t('invoices.form.issued_on'), :as => :string %>
 

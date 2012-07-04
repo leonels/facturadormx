@@ -2,9 +2,15 @@ Facturadormx::Application.routes.draw do
 
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
 
-    resources :people
-    get "dashboard/index" => 'dashboard#index'
+    resources :accounts
+    
     devise_for :users
+    # override
+    get "accounts/new" => "accounts#new", :as => "new_user_registration"
+    
+    get "dashboard/index" => 'dashboard#index'
+    resources :people
+
     resources :line_items
     resources :items
     resources :invoices

@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120627172854) do
+ActiveRecord::Schema.define(:version => 20120704185447) do
+
+  create_table "accounts", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "invoices", :force => true do |t|
     t.integer  "organization_id"
@@ -21,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120627172854) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "invoice_number"
+    t.integer  "account_id"
   end
 
   create_table "items", :force => true do |t|
@@ -29,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120627172854) do
     t.decimal  "price",       :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "line_items", :force => true do |t|
@@ -55,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20120627172854) do
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "people", :force => true do |t|
@@ -67,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20120627172854) do
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "users", :force => true do |t|
@@ -86,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20120627172854) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

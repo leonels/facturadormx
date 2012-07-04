@@ -1,11 +1,10 @@
 class InvoicesController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :load_resources, :only => [:new, :create, :edit, :update]
 
-  # GET /invoices
-  # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    @invoices = Invoice.where(:account_id => current_user.account.id).page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,14 +12,11 @@ class InvoicesController < ApplicationController
     end
   end
 
-  # GET /invoices/1
-  # GET /invoices/1.json
   def show
     @invoice = Invoice.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @invoice }
+      format.html
     end
   end
 
@@ -29,21 +25,21 @@ class InvoicesController < ApplicationController
     3.times do
       line_item = @invoice.line_items.build
     end
+    @invoice.account_id = current_user.account.id
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @invoice }
     end
   end
 
-  # GET /invoices/1/edit
   def edit
     @invoice = Invoice.find(params[:id])
   end
 
-  # POST /invoices
-  # POST /invoices.json
   def create
     @invoice = Invoice.new(params[:invoice])
+    @invoice.account_id = current_user.account.id
 
     respond_to do |format|
       if @invoice.save
@@ -56,8 +52,6 @@ class InvoicesController < ApplicationController
     end
   end
 
-  # PUT /invoices/1
-  # PUT /invoices/1.json
   def update
     @invoice = Invoice.find(params[:id])
 
@@ -82,5 +76,12 @@ class InvoicesController < ApplicationController
       format.html { redirect_to invoices_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  
+  def load_resources
+    @clients = Organization.where(:account_id => current_user.account.id)
+    @items = Item.where(:account_id => current_user.account.id)
   end
 end

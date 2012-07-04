@@ -1,10 +1,13 @@
 class Invoice < ActiveRecord::Base
 
+  belongs_to :account
+  validates :account_id, :presence => true
+
   belongs_to :organization
   has_many :line_items, :dependent => :destroy
 
   validates_presence_of :organization_id, :invoice_number, :issued_on, :status
-  validates_uniqueness_of :invoice_number
+  # validates_uniqueness_of :invoice_number
   
   scope :newest, :order => "issued_on desc"
 

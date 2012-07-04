@@ -2,56 +2,44 @@ class ItemsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  # GET /items
-  # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.where(:account_id => current_user.account.id).page(params[:page]).per(15)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @items }
+      format.html
     end
   end
 
-  # GET /items/1
-  # GET /items/1.json
   def show
     @item = Item.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @item }
+      format.html
     end
   end
 
-  # GET /items/new
-  # GET /items/new.json
   def new
     @item = Item.new
+    @item.account_id = current_user.account.id
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @item }
+      format.html
     end
   end
 
-  # GET /items/1/edit
   def edit
     @item = Item.find(params[:id])
   end
 
-  # POST /items
-  # POST /items.json
   def create
     @item = Item.new(params[:item])
+    @item.account_id = current_user.account.id
 
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
   end

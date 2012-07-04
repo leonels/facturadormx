@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @organizations = Organization.all
+    @organizations = Organization.where(:account_id => current_user.account.id).page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,7 +20,9 @@ class OrganizationsController < ApplicationController
 
   def new
     @organization = Organization.new
-     person = @organization.people.build
+    @organization.account_id = current_user.account.id
+    @organization.people << Person.new
+    @organization.people[0].account_id = current_user.account.id
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -34,6 +36,8 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(params[:organization])
+    @organization.account_id = current_user.account.id
+    @organization.people[0].account_id = current_user.account.id
 
     respond_to do |format|
       if @organization.save

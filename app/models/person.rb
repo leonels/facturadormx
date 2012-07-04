@@ -1,5 +1,8 @@
 class Person < ActiveRecord::Base
 
+  belongs_to :account
+  validates :account_id, :presence => true, :on => :update
+  
   belongs_to :organization
   
   # to-do 1
@@ -7,7 +10,7 @@ class Person < ActiveRecord::Base
   # validates_presence_of :organization_id
   # to-do 2
   # remove phone_two
-  validates :email, :presence => true, :uniqueness => true
+  validates :email, :presence => true #, :uniqueness => true
   
   def full_name
     "#{first_name} " + "#{last_name}"
