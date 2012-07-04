@@ -1,4 +1,7 @@
 en:
+  dashboards:
+    index:
+      title: "Dashboard"
   users:
     sign_in:
       title: "Sign in"

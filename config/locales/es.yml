@@ -1,4 +1,7 @@
 es:
+  dashboards:
+    index:
+      title: "Inicio"
   users:
     sign_in:
       title: "Acceder"
