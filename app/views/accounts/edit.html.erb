@@ -1,6 +1,23 @@
 <h1>Editing account</h1>
 
-<%= render 'form' %>
+<%= simple_form_for(@account) do |f| %>
+  <%= f.error_notification %>
 
-<%= link_to 'Show', @account %> |
-<%= link_to 'Back', accounts_path %>
+  <div class="form-inputs">
+    <%= f.fields_for :users do |builder| %>
+      <%= render 'user_fields', :f => builder %>
+    <% end %>
+  </div>
+  
+  <div class="form-inputs">
+    <%= f.fields_for :company do |builder| %>
+      <%= render 'company_fields', :f => builder %>
+    <% end %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.button :submit, (t "users.sign_up.button"), :class => 'btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @account %>

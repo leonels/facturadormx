@@ -2,11 +2,15 @@ en:
   dashboards:
     index:
       title: "Dashboard"
+  accounts:
+    show:
+      title: "My Account"
   users:
     sign_in:
       title: "Sign in"
     sign_up:
       title: "Sign up"
+      company_name: "Company Name"
       username: "Choose your username"
       password: "Create a password"
       password_confirmation: "Confirm your password"

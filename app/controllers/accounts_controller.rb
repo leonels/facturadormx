@@ -23,6 +23,7 @@ class AccountsController < ApplicationController
   def new
     @account = Account.new
     @account.users << User.new
+    @account.build_company
 
     respond_to do |format|
       format.html

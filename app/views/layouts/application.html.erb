@@ -54,6 +54,8 @@
             -->
             <li><a><%= current_user.email %></a></li>
             <li class="divider-vertical"></li>
+            <li><%= link_to t("accounts.show.title"), account_path(current_user.account) %></li>
+            <li class="divider-vertical"></li>
             <li><%= link_to t("users.sign_out"), destroy_user_session_path, :method => :delete %></li>
           <% else %>
           <ul class="nav">

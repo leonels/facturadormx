@@ -1,4 +1,7 @@
 class Account < ActiveRecord::Base
+  has_one :company, :dependent => :destroy
+  accepts_nested_attributes_for :company
+
   has_many :organizations, :dependent => :destroy
   has_many :people, :dependent => :destroy
   has_many :users, :dependent => :destroy

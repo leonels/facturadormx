@@ -1,0 +1,12 @@
+<fieldset>
+  <legend><%= t "organizations.edit.details" %> <small>This information is used for invoicing, emails, and more. Make sure it's correct!</small></legend>
+  <%= f.input :name, :label => t("users.sign_up.company_name"), :required => true, :autofocus => true %>
+  <%= f.input :address_one, label: t('organizations.edit.address_one') %>
+  <%= f.input :address_two, label: "-" %>
+  <%= f.input :city, label: t('organizations.edit.city') %>
+  <%= f.input :state, label: t('organizations.edit.state') %>
+  <%= f.input :postal_code, label: t('organizations.edit.postal_code') %>
+  <%= f.input :phone, label: t('organizations.edit.phone') %>
+  <%= f.input :fax %>
+  <%= f.input :website, label: t('organizations.edit.website') %>
+</fieldset>

@@ -3,6 +3,7 @@ Facturadormx::Application.routes.draw do
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
 
     resources :accounts
+    resources :companies
     
     devise_for :users
     # override

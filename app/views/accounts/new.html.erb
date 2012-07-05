@@ -9,7 +9,31 @@
       <div class="row">
         <div class="span8">
           <h2>Crear una nueva cuenta de FacturadorMX</h2>
-          <%= render 'form' %>
+          
+          <%= simple_form_for(@account) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.fields_for :company do |c_form| %>
+                
+                <div class="inputs">
+                  <%= c_form.input :name, :label => t("users.sign_up.company_name"), :required => true, :autofocus => true %>
+                </div>
+                
+              <% end %>
+            </div>
+
+            <div class="form-inputs">
+              <%= f.fields_for :users do |builder| %>
+                <%= render 'user_fields', :f => builder %>
+              <% end %>
+            </div>
+
+            <div class="form-inputs">
+              <%= f.button :submit, (t "users.sign_up.button"), :class => 'btn-primary' %>
+            </div>
+          <% end %>
+          
         </div>
         <div class="span4">
           <h2>Ya tienes una cuenta?</h2>
