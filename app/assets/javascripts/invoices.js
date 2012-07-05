@@ -7,7 +7,7 @@ function add_fields_invoice(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
   // $(link).parent().before(content.replace(regexp, new_id));
-  // $('#invoice > tbody:last').append(content.replace(regexp, new_id));
+  // $('#invoijace > tbody:last').append(content.replace(regexp, new_id));
   $('.add_a_line_row').before(content.replace(regexp, new_id));
 }
 
@@ -42,7 +42,8 @@ function roundNumber(num,dec){
 
 // new items will be populated with default data
 // http://stackoverflow.com/questions/8524126/function-stops-working-on-new-items
-$(document).on("blur", ".product", function(){
+$(document).on("change", ".product", function(){
+// $(document).on("blur", ".product", function(){
   var optionElem = $(this).find(":selected")[0]; // <option value="3" data-defaultQuantity="1">product name</option>
   $(this).closest('.item').find('.qty').val(optionElem.dataset.defaultquantity); // replace quantity
   $(this).closest('.item').find('.price').val(optionElem.dataset.price); // replace price

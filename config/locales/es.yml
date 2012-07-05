@@ -60,7 +60,7 @@ es:
       issued_date: 'Fecha'
       item: 'Concepto'
       description: 'Descripcion'
-      unit_cost: 'Precio'
+      unit_cost: 'Importe'
       quantity: 'Cantidad'
       line_total: 'Totales'
       notes: 'Anotaciones'
@@ -70,10 +70,10 @@ es:
       issued_on: "Fecha"
       item: "Concepto"
       description: 'Descripcion'
-      unit_cost: 'Precio'
+      unit_cost: 'Importe'
       quantity: 'Cantidad'
       line_total: 'Totales'
-      add_a_line: 'Agregar Linea'
+      add_a_line: 'Añadir otro concepto'
       notes: 'Anotaciones'
     status:
       unpaid: "pendiente" 

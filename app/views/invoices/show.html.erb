@@ -6,20 +6,30 @@
 */
 
 * { margin: 0; padding: 0; }
-body { font: 14px/1.4 Georgia, serif; }
-#page-wrap { width: 800px; margin: 0 auto; }
+// body { font: 14px/1.4 Georgia, serif; }
+#page-wrap {
+  width: 800px; margin: 0 auto;
+  border:solid 1px #E1E1E1;
+  padding: 54px 40px 72px 40px;
+  -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+  -moz-box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+}
 
 textarea { border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none; }
 table { border-collapse: collapse; }
-table td, table th { border: 1px solid black; padding: 5px; }
+table td, table th { border: 1px solid #CCC; padding: 5px; }
 
-#header { height: 15px; width: 100%; margin: 20px 0; background: #222; text-align: center; color: white; font: bold 15px Helvetica, Sans-Serif; text-decoration: uppercase; letter-spacing: 20px; padding: 8px 0px; }
+#header {
+  height: 15px; width: 100%; background: #222; text-align: center; color: white; font: bold 15px Helvetica, Sans-Serif; text-decoration: uppercase; letter-spacing: 20px; padding: 8px 0px;
+  // margin: 20px 0;
+}
 
 #address { width: 250px; height: 150px; float: left; }
 #customer { overflow: hidden; }
 
 #logo { text-align: right; float: right; position: relative; margin-top: 25px; border: 1px solid #fff; max-width: 540px; max-height: 100px; overflow: hidden; }
-#logo:hover, #logo.edit { border: 1px solid #000; margin-top: 0px; max-height: 125px; }
+#logo:hover, #logo.edit { border: 1px solid #CCC; margin-top: 0px; max-height: 125px; }
 #logoctr { display: none; }
 #logo:hover #logoctr, #logo.edit #logoctr { display: block; text-align: right; line-height: 25px; background: #eee; padding: 0 5px; }
 #logohelp { text-align: left; display: none; font-style: italic; padding: 10px 5px;}
@@ -34,7 +44,7 @@ table td, table th { border: 1px solid black; padding: 5px; }
 #meta td.meta-head { text-align: left; background: #eee; }
 #meta td textarea { width: 100%; height: 20px; text-align: right; }
 
-#items { clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black; }
+#items { clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid #CCC; }
 #items th { background: #eee; }
 #items textarea { width: 80px; height: 50px; }
 #items tr.item-row td { border: 0; vertical-align: top; }
@@ -47,8 +57,8 @@ table td, table th { border: 1px solid black; padding: 5px; }
 #items td.balance { background: #eee; }
 #items td.blank { border: 0; }
 
-#terms { text-align: center; margin: 20px 0 0 0; }
-#terms h5 { text-transform: uppercase; font: 13px Helvetica, Sans-Serif; letter-spacing: 10px; border-bottom: 1px solid black; padding: 0 0 8px 0; margin: 0 0 8px 0; }
+#terms { text-align: left; margin: 20px 0 0 0; }
+#terms h5 { font: 13px Helvetica, Sans-Serif; font-weight:bold; margin: 0 0 3px 0; }
 #terms textarea { width: 100%; text-align: center;}
 
 textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.total-value textarea:focus, .delete:hover { background-color:#EEFF88; }
@@ -75,7 +85,7 @@ textarea#invoice_notes{
 
 <div id="page-wrap">
 
-		<textarea id="header"><%= t '.invoice' %></textarea>
+		<!-- <textarea id="header"><%= t '.invoice' %></textarea> -->
 		
 		<div id="identity">
 		

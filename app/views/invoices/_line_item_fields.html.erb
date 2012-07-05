@@ -8,11 +8,11 @@
 		      <td class="description">
 		        <%= f.text_area :description, :rows => 1, :value => f.object.description, :class => 'description' %>
 		      </td>
-		      <td class="price_data" style="text-align:right;">
-		        <%= f.text_field :price, :size => 8, :value => (number_with_precision(f.object.price,:precision => 2)||0), :class => 'price' %>
-		      </td>
 		      <td class="quantity_data">
 		        <%= f.text_field :quantity, :size => 4, :class => 'qty' %>
+		      </td>
+		      <td class="price_data" style="text-align:right;">
+		        <%= f.text_field :price, :size => 8, :value => (number_with_precision(f.object.price,:precision => 2)||0), :class => 'price' %>
 		      </td>
 		      <td class="lineitemtotal linetotal_data" style="text-align:right;"></td>
 		  </tr>
