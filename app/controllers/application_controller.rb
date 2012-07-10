@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] if params[:locale].present?
     
     (I18n.locale = "es" if current_user.username == "homero") if user_signed_in?
+    (I18n.locale = "es" if current_user.username == "leonels") if user_signed_in?
     
     # current_user.locale
     # request.subdomain

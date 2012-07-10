@@ -102,7 +102,7 @@ es:
       title: 'Editar Concepto'
   nav: 
     my_profile: "Mi Perfil"
-    company_profile: "Perfil de la Empresa"
+    company_profile: "Perfil de mi Empresa"
   buttons:
     save: "Guardar"
     back: "Atras"
