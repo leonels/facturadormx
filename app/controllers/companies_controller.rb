@@ -53,18 +53,15 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # PUT /companies/1
-  # PUT /companies/1.json
   def update
     @company = Company.find(params[:id])
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
-        format.json { head :ok }
+        # format.html { redirect_to @company, notice: 'Company was successfully updated.' }
+        format.html { redirect_to edit_company_path(@company), notice: 'Company was successfully updated.' }
       else
         format.html { render action: "edit" }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -100,7 +100,11 @@ en:
       title: 'New Item'
     edit:
       title: 'Edit Item'
+  nav: 
+    my_profile: "My Profile"
+    company_profile: "Company Profile"
   buttons:
+    save: "Save"
     back: "Back"
     edit: "Edit"
     destroy: "Delete"

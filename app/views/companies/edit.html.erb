@@ -1,4 +1,3 @@
 <%- model_class = @company.class -%>
-<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
-                                 :default => "Edit #{model_class.model_name.human}") %></h1>
+<h1><%= t 'nav.company_profile' %></h1>
 <%= render :partial => 'form' %>

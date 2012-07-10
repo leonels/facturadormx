@@ -9,15 +9,18 @@
     <% end %>
   </div>
   
+  <!--
   <div class="form-inputs">
-    <%= f.fields_for :company do |builder| %>
-      <%= render 'company_fields', :f => builder %>
-    <% end %>
+    <%= # f.fields_for :company do |builder| 
+    %>
+      <%= # render 'company_fields', :f => builder 
+      %>
+    <% # end 
+    %>
   </div>
+  -->
 
   <div class="form-inputs">
-    <%= f.button :submit, (t "users.sign_up.button"), :class => 'btn-primary' %>
+    <%= f.button :submit, (t "buttons.save"), :class => 'btn-primary' %>
   </div>
 <% end %>
-
-<%= link_to 'Show', @account %>

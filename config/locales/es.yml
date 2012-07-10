@@ -100,7 +100,11 @@ es:
       title: 'Crear Concepto'
     edit:
       title: 'Editar Concepto'
+  nav: 
+    my_profile: "Mi Perfil"
+    company_profile: "Perfil de la Empresa"
   buttons:
+    save: "Guardar"
     back: "Atras"
     edit: "Editar"
     destroy: "Borrar"
